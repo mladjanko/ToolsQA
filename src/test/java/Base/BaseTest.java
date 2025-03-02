@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.io.IOException;
+
 public class BaseTest {
 
     public static WebDriver driver;
@@ -23,12 +25,15 @@ public class BaseTest {
     public WebTablesPage webTablesPage;
     public RegistrationFormPage registrationFormPage;
     public ButtonsPage buttonsPage;
+    public LinksPage linksPage;
 
     @BeforeClass
-    public void setUp() {
+    public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+        excelReader = new ExcelReader("ToolsQAData.xlsx");
     }
 
     @AfterClass
