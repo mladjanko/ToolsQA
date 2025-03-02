@@ -14,7 +14,7 @@ public class HomepageTest extends BaseTest {
     @BeforeMethod
     public void pageSetUp() throws IOException {
         homepagePage = new HomepagePage();
-        excelReader = new ExcelReader("ToolsQAData.xlsx");
+        excelReader = new ExcelReader("ToolsQATestData.xlsx");
         driver.navigate().to(excelReader.getStringData("Homepage", 0, 0));
     }
 

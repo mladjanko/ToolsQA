@@ -24,7 +24,7 @@ public class ButtonsTest extends BaseTest {
         homepagePage = new HomepagePage();
         leftsidemenuPage = new LeftsidemenuPage();
         buttonsPage = new ButtonsPage();
-        excelReader = new ExcelReader("ToolsQAData.xlsx");
+        excelReader = new ExcelReader("ToolsQATestData.xlsx");
         driver.navigate().to(excelReader.getStringData("Homepage", 0, 0));
 
         homepagePage.clickOnCard(excelReader.getStringData("Homepage", 1, 1));

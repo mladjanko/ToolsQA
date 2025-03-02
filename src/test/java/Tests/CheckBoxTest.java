@@ -18,7 +18,7 @@ public class CheckBoxTest extends BaseTest {
         homepagePage = new HomepagePage();
         leftsidemenuPage = new LeftsidemenuPage();
         checkBoxPage = new CheckBoxPage();
-        excelReader = new ExcelReader("ToolsQAData.xlsx");
+        excelReader = new ExcelReader("ToolsQATestData.xlsx");
         driver.navigate().to(excelReader.getStringData("Homepage", 0, 0));
 
         homepagePage.clickOnCard(excelReader.getStringData("Homepage", 1, 1));

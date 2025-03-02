@@ -33,7 +33,7 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        excelReader = new ExcelReader("ToolsQAData.xlsx");
+        excelReader = new ExcelReader("ToolsQATestData.xlsx");
     }
 
     @AfterClass
