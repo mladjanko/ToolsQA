@@ -6,17 +6,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LinksPage extends BaseTest {
+
     public LinksPage() {
         PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "simpleLink")
-    public WebElement homeLink;
+    public WebElement simpleHomeLink;
 
     @FindBy(id = "dynamicLink")
-    public WebElement home5wxkwLink;
+    public WebElement dynamicHomeLink;
 
-    @FindBy(id = "createdLink")
+    @FindBy(id = "created")
     public WebElement createdLink;
 
     @FindBy(id = "no-content")

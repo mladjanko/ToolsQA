@@ -1,7 +1,6 @@
 package Tests;
 
 import Base.BaseTest;
-import Base.ExcelReader;
 import Pages.HomepagePage;
 import Pages.LeftsidemenuPage;
 import Pages.RegistrationFormPage;
@@ -10,20 +9,20 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
+import static Helpers.HomepageCards.ELEMENTS;
+import static Helpers.URLs.HOMEPAGEURL;
 
 public class WebTablesTest extends BaseTest {
 
     @BeforeMethod
-    public void pageSetUp() throws IOException {
+    public void pageSetUp() {
         homepagePage = new HomepagePage();
         leftsidemenuPage = new LeftsidemenuPage();
         webTablesPage = new WebTablesPage();
         registrationFormPage = new RegistrationFormPage();
-        excelReader = new ExcelReader("ToolsQATestData.xlsx");
-        driver.navigate().to(excelReader.getStringData("Homepage", 0, 0));
 
-        homepagePage.clickOnCard(excelReader.getStringData("Homepage", 1, 1));
+        driver.navigate().to(HOMEPAGEURL);
+        homepagePage.clickOnCard(ELEMENTS);
         leftsidemenuPage.clickOnLeftMenuItem(excelReader.getStringData("Left Side Menu", 4, 1));
     }
 
