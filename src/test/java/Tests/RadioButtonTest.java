@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.time.Duration;
 
+import static Helpers.URLs.HOMEPAGEURL;
+
 public class RadioButtonTest extends BaseTest {
 
     @BeforeMethod
@@ -24,14 +26,15 @@ public class RadioButtonTest extends BaseTest {
         leftsidemenuPage = new LeftsidemenuPage();
         radioButtonPage = new RadioButtonPage();
         excelReader = new ExcelReader("ToolsQATestData.xlsx");
-        driver.navigate().to(excelReader.getStringData("Homepage", 0, 0));
+        driver.navigate().to(HOMEPAGEURL);
 
-        homepagePage.clickOnCard(excelReader.getStringData("Homepage", 1, 1));
+        homepagePage.clickOnCard(excelReader.getStringData("Homepage", 0, 0));
         leftsidemenuPage.clickOnLeftMenuItem(excelReader.getStringData("Left Side Menu", 3, 1));
     }
 
     @Test(priority = 10)
     public void clickOnYesRadioButtonTest() throws InterruptedException {
+        scrollToElement(radioButtonPage.radioButtonList.getFirst());
         radioButtonPage.clickRadioButton(excelReader.getStringData("Radio Button", 0, 0));
         wait.until(ExpectedConditions.visibilityOf(radioButtonPage.textSuccess.getFirst()));
         Assert.assertTrue(radioButtonPage.youHaveSelectedText.isDisplayed());
@@ -42,6 +45,7 @@ public class RadioButtonTest extends BaseTest {
 
     @Test(priority = 20)
     public void clickOnImpressiveRadioButton() throws InterruptedException {
+        scrollToElement(radioButtonPage.radioButtonList.getFirst());
         radioButtonPage.clickRadioButton(excelReader.getStringData("Radio Button", 1, 0));
         wait.until(ExpectedConditions.visibilityOf(radioButtonPage.textSuccess.getFirst()));
         Assert.assertTrue(radioButtonPage.youHaveSelectedText.isDisplayed());
@@ -53,6 +57,7 @@ public class RadioButtonTest extends BaseTest {
     @Test(priority = 30)
     public void clickOnNoRadioButton() throws InterruptedException {
         // Clicking on 'No' radio button, assert that the success message is empty
+        scrollToElement(radioButtonPage.radioButtonList.getFirst());
         radioButtonPage.clickRadioButton(excelReader.getStringData("Radio Button", 2, 0));
         Assert.assertTrue(radioButtonPage.textSuccess.isEmpty(), "Success message should be empty when 'No' is selected.");
         Thread.sleep(3000);

@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+import static Helpers.URLs.HOMEPAGEURL;
+
 public class TextBoxTest extends BaseTest {
 
     @BeforeMethod
@@ -19,9 +21,9 @@ public class TextBoxTest extends BaseTest {
         leftsidemenuPage = new LeftsidemenuPage();
         textBoxPage = new TextBoxPage();
         excelReader = new ExcelReader("ToolsQATestData.xlsx");
-        driver.navigate().to(excelReader.getStringData("Homepage", 0, 0));
+        driver.navigate().to(HOMEPAGEURL);
 
-        homepagePage.clickOnCard(excelReader.getStringData("Homepage", 1, 1));
+        homepagePage.clickOnCard(excelReader.getStringData("Homepage", 0, 0));
         leftsidemenuPage.clickOnLeftMenuItem(excelReader.getStringData("Left Side Menu", 1, 1));
     }
 

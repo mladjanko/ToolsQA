@@ -11,9 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.time.Duration;
+import static Helpers.URLs.HOMEPAGEURL;
 
 public class ButtonsTest extends BaseTest {
 
@@ -25,9 +25,9 @@ public class ButtonsTest extends BaseTest {
         leftsidemenuPage = new LeftsidemenuPage();
         buttonsPage = new ButtonsPage();
         excelReader = new ExcelReader("ToolsQATestData.xlsx");
-        driver.navigate().to(excelReader.getStringData("Homepage", 0, 0));
+        driver.navigate().to(HOMEPAGEURL);
 
-        homepagePage.clickOnCard(excelReader.getStringData("Homepage", 1, 1));
+        homepagePage.clickOnCard(excelReader.getStringData("Homepage", 0, 0));
         leftsidemenuPage.clickOnLeftMenuItem(excelReader.getStringData("Left Side Menu", 5, 1));
     }
 
